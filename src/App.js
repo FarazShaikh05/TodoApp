@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+// App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import Login from './components/Login';
+import Register from './components/Register';
+import Updateprofile from './components/Updateprofile';
+import Todo from './components/Todo';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/todo" element={isAuthenticated ? <Todo /> : <Navigate to="/login" />} />
+            <Route path="/update-profile" element={<Updateprofile />} />
+            <Route path="/" element={<Navigate to="/login" />} />
+          </Routes>
+        </div>
+      </Router>
+    
   );
-}
+};
 
 export default App;
+
+

@@ -1,38 +1,331 @@
-.App {
-  text-align: center;
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
+    list-style-type: none; /* Remove the list dots */
+    padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Login and Register Styles */
+.login, .register {
+    display: flex;
+    margin: 10px;
+    padding: 5px;
+    width: 250px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.login-div, .register-div {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.btn {
+    width: 265px;
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: #ffae00;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Todo Page Styles */
+.todo-div {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0; /* Light grey background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 60px; /* Space for the navbar */
 }
+
+.profile-header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.back-icon {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.add-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ffae00;
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.add-todo-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    background: white;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-todo-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-todo-subcontent {
+    width: 230px;
+    height: 100px;
+    padding: 10px;
+    border: 2px solid grey;
+}
+
+.todo-content {
+    width: 300px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 5px;
+    background: white;
+    margin: 5px 0;
+    padding: 10px;
+}
+
+.date-content {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.task-content {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.finish-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffae00;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Tabs Styles */
+.tab-div {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    padding: 10px;
+    cursor: pointer;
+    background: #ffae00;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+/* Navbar and Sidebar Styles */
+.navbar {
+    background-color: #ffffff;
+    color: rgb(255, 174, 0);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    width: 100vw;
+    height: 35px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-todo {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    padding-right: 50px;
+}
+
+.nav-calendar-icon {
+    margin-right: 20px;
+}
+
+.hidden-date-picker {
+    width: 1px;
+    display: none;
+}
+
+.selected-date {
+    text-align: center;
+    font-weight: bold;
+}
+
+.add-todo-subcontent {
+    resize: none;
+}
+
+.add-todo-btn {
+    width: 238px;
+    padding: 7px;
+    background-color: #ffae00;
+    border: none;
+    border-radius: 4px;
+    font-size: medium;
+}
+
+.sidebar-icon {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.sidebar {
+    height: 100%;
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    transition: 0.3s;
+    z-index: 1000;
+    border: 1px solid grey;
+}
+
+.sidebar-title {
+    padding: 0px 40px;
+    color: rgb(255, 174, 0);
+    font-size: 1.25rem;
+}
+
+.sidebar a {
+    padding: 10px 40px;
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: rgb(0, 0, 0);
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+    color: white;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.error {
+    color: red;
+    font-size: 17px;
+    margin-left: 20px;
+}
+
+.error-register {
+    font-size: 17px;
+    color:red;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 30px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+
+
+ 
+
+
+
